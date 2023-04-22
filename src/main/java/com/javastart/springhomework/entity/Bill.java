@@ -1,5 +1,7 @@
 package com.javastart.springhomework.entity;
 
+import com.javastart.springhomework.controller.dto.BillRequestDTO;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +22,11 @@ public class Bill {
     public Bill(BigDecimal amount, Boolean isDefault) {
         this.amount = amount;
         this.isDefault = isDefault;
+    }
+
+    public Bill(BillRequestDTO billRequestDTO) {
+        amount = billRequestDTO.getAmount();
+        isDefault = billRequestDTO.getDefault();
     }
 
     public Bill() {
